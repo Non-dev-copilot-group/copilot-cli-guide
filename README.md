@@ -123,8 +123,8 @@ flowchart TD
 
 ### 4.1 Windows 사용자 (권장: WinGet)
 
+<img width="1448" height="1375" alt="image" src="https://github.com/user-attachments/assets/02b5f71f-ecfa-49f4-b95c-e6d252bf7bd9" />
 
-<img width="993" height="996" alt="image" src="https://github.com/user-attachments/assets/1a07047b-c89a-4c97-8047-143df6c55de6" />
 
 Windows 10/11 에는 기본적으로 `winget` 이라는 설치 도구가 들어 있습니다.
 
