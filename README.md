@@ -1,6 +1,7 @@
 # GitHub Copilot CLI 시작 가이드 (비개발자용)
 
 > 마케팅, 세일즈, HR, 기획 등 **개발자가 아닌 분들이 GitHub Copilot CLI를 처음 설치하고 실무에 활용하는 방법**을 처음부터 끝까지 안내합니다.
+<img width="597" height="335" alt="image" src="https://github.com/user-attachments/assets/39dcbcda-200a-4554-8894-73cf8d4f4eda" />
 
 터미널이 무엇인지 몰라도 괜찮습니다. 이 문서를 위에서부터 순서대로 따라오시면 됩니다. 명령어는 전부 **그대로 복사해서 붙여넣기**만 하면 동작하도록 준비되어 있습니다.
 
