@@ -1,7 +1,6 @@
 # GitHub Copilot CLI 시작 가이드 (비개발자용)
 
 > 마케팅, 세일즈, HR, 기획 등 **개발자가 아닌 분들이 GitHub Copilot CLI를 처음 설치하고 실무에 활용하는 방법**을 처음부터 끝까지 안내합니다.
-<img width="597" height="335" alt="image" src="https://github.com/user-attachments/assets/39dcbcda-200a-4554-8894-73cf8d4f4eda" />
 
 터미널이 무엇인지 몰라도 괜찮습니다. 이 문서를 위에서부터 순서대로 따라오시면 됩니다. 명령어는 전부 **그대로 복사해서 붙여넣기**만 하면 동작하도록 준비되어 있습니다.
 
@@ -17,11 +16,7 @@
 6. [5분 만에 배우는 기본 사용법](#6-5분-만에-배우는-기본-사용법)
 7. [슬래시 명령어와 옵션 치트시트](#7-슬래시-명령어와-옵션-치트시트)
 8. [반드시 알아야 할 안전 수칙](#8-반드시-알아야-할-안전-수칙)
-9. [직군별 실전 시나리오 (폴더별 상세 문서)](#9-직군별-실전-시나리오-폴더별-상세-문서)
-   - Marketing → [`marketing/`](./marketing/)
-   - Sales → [`sales/`](./sales/)
-   - HR / Ops → [`hr-ops/`](./hr-ops/)
-   - PM / 기획 → [`pm-planning/`](./pm-planning/)
+9. [이 저장소 사용법 (학습 로드맵)](#9-이-저장소-사용법-학습-로드맵)
 10. [자주 하는 실수와 트러블슈팅](#10-자주-하는-실수와-트러블슈팅)
 11. [다음 단계 / 공식 자료](#11-다음-단계--공식-자료)
 
@@ -53,18 +48,21 @@
 
 ### 그림으로 보는 흐름
 
-```
-[내가 한글로 말함]
-       ↓
-"이 폴더에 있는 판매 CSV 3개를 합쳐서 지역별 매출 요약해줘"
-       ↓
-[Copilot CLI 가 스스로 판단]
-   1. 폴더에 있는 CSV 파일 3개를 찾음
-   2. 파일 내용을 읽음
-   3. 하나로 합치는 스크립트를 만듦  ← 실행 전에 나에게 승인 요청
-   4. 결과를 요약해서 화면에 출력
-       ↓
-[내가 결과 확인]
+```mermaid
+flowchart TD
+    A["사용자<br/>한국어로 요청"] --> B["Copilot CLI"]
+    B --> C1["1. 폴더 안 파일 찾기"]
+    C1 --> C2["2. 파일 내용 읽기"]
+    C2 --> C3["3. 필요한 스크립트 생성"]
+    C3 --> C4{"사용자 승인?"}
+    C4 -->|Yes| C5["4. 스크립트 실행"]
+    C4 -->|No| B
+    C5 --> D["결과 파일 저장<br/>+ 화면에 요약 출력"]
+
+    style A fill:#e1f5ff
+    style B fill:#fff9c4
+    style C4 fill:#ffccbc
+    style D fill:#c8e6c9
 ```
 
 ---
@@ -396,18 +394,126 @@ Copilot 은 프롬프트 처리를 위해 **파일 내용의 일부를 GitHub �
 
 ---
 
-## 9. 직군별 실전 시나리오 (폴더별 상세 문서)
+## 9. 이 저장소 사용법 (학습 로드맵)
 
-직군별로 폴더가 분리되어 있습니다. 본인 역할에 해당하는 폴더의 `README.md` 를 열어보세요. 각 시나리오는 **상황 / 프롬프트(복사해 쓰는 한국어 명령) / 결과 / 팁** 4단 구조로 통일되어 있고, 대화형 모드(`copilot`) 안에서 그대로 입력할 수 있습니다.
+여기까지 오셨다면 설치와 안전 수칙은 완료. 이제 **본인 직군의 폴더로 이동해서 챕터 순서대로** 학습하시면 됩니다.
 
-| 직군 | 폴더 | 수록 시나리오 |
+### 9.1 전체 구조 한눈에 보기
+
+```mermaid
+graph TD
+    A["copilot-cli-guide<br/>(이 저장소)"] --> R["README.md<br/>설치 · 인증 · 안전 수칙 · 학습 로드맵<br/>(지금 이 문서)"]
+    A --> M["marketing/<br/>마케팅"]
+    A --> S["sales/<br/>세일즈"]
+    A --> H["hr-ops/<br/>HR · Ops"]
+    A --> P["pm-planning/<br/>PM · 기획"]
+
+    M --> M0["README.md<br/>챕터 인덱스"]
+    M --> M1["ch1-basics.md<br/>Ch 1 사용법"]
+    M --> M2["ch2-application.md<br/>Ch 2 활용"]
+    M --> M3["ch3-professional.md<br/>Ch 3 현업 활용"]
+
+    S --> S0["README.md"]
+    S --> S1["ch1-basics.md"]
+    S --> S2["ch2-application.md"]
+    S --> S3["ch3-professional.md"]
+
+    H --> H0["README.md"]
+    H --> H1["ch1-basics.md"]
+    H --> H2["ch2-application.md"]
+    H --> H3["ch3-professional.md"]
+
+    P --> P0["README.md"]
+    P --> P1["ch1-basics.md"]
+    P --> P2["ch2-application.md"]
+    P --> P3["ch3-professional.md"]
+
+    style R fill:#e1f5ff
+    style M fill:#ffe1e1
+    style S fill:#e1ffe1
+    style H fill:#fff9e1
+    style P fill:#f0e1ff
+```
+
+각 직군 폴더는 **동일한 3-챕터 구조** 로 되어 있습니다. 챕터가 올라갈수록 난이도가 올라갑니다.
+
+### 9.2 학습 흐름 (권장 순서)
+
+```mermaid
+flowchart LR
+    Start((시작)) --> Setup["메인 README<br/>1~8장<br/>설치 · 인증<br/>안전 수칙"]
+    Setup --> Role{"내 직군?"}
+    Role -->|Marketing| M["marketing/<br/>README.md"]
+    Role -->|Sales| S["sales/<br/>README.md"]
+    Role -->|HR · Ops| H["hr-ops/<br/>README.md"]
+    Role -->|PM · 기획| P["pm-planning/<br/>README.md"]
+    M --> Ch1["Ch 1<br/>사용법<br/>10분"]
+    S --> Ch1
+    H --> Ch1
+    P --> Ch1
+    Ch1 --> Ch2["Ch 2<br/>활용<br/>30분"]
+    Ch2 --> Ch3["Ch 3<br/>현업 활용<br/>60분+"]
+    Ch3 --> Done((팀 자산화<br/>재사용 프롬프트))
+
+    style Setup fill:#e1f5ff
+    style Ch1 fill:#c8e6c9
+    style Ch2 fill:#fff9c4
+    style Ch3 fill:#ffccbc
+    style Done fill:#f8bbd0
+```
+
+### 9.3 챕터 시스템 (모든 직군 공통)
+
+| 챕터 | 난이도 | 소요 시간 | 목표 | 다루는 내용 |
+|---|---|---|---|---|
+| **Ch 1. 사용법** | 초급 ★☆☆ | 10분 | 첫 성공 경험 | Copilot 을 처음 실행해서 3~4개 초간단 명령을 실제로 실행 |
+| **Ch 2. 활용** | 중급 ★★☆ | 30분 | 반복 업무 자동화 | 여러 단계로 이뤄진 소규모 워크플로우, 결과 파일 생성 |
+| **Ch 3. 현업 활용** | 고급 ★★★ | 60분+ | 팀 자산화 | 여러 데이터 소스 통합, 정기 리포트, 재사용 프롬프트 |
+
+```mermaid
+graph LR
+    Ch1["Ch 1 · 사용법<br/>★☆☆<br/>10분"]
+    Ch2["Ch 2 · 활용<br/>★★☆<br/>30분"]
+    Ch3["Ch 3 · 현업 활용<br/>★★★<br/>60분+"]
+    Ch1 -->|"기본 명령 익힘"| Ch2
+    Ch2 -->|"자동화 감 잡음"| Ch3
+    Ch3 -->|"프롬프트 자산화"| Save["재사용 프롬프트<br/>사내 위키·Notion"]
+
+    style Ch1 fill:#c8e6c9
+    style Ch2 fill:#fff9c4
+    style Ch3 fill:#ffccbc
+    style Save fill:#e1f5ff
+```
+
+### 9.4 직군 목록
+
+| 직군 | 폴더 | 대표 사용 사례 |
 |---|---|---|
-| **Marketing** — 캠페인 데이터 · 콘텐츠 운영 | [`marketing/`](./marketing/) | 광고 CSV 통합, 이미지 리사이즈, 경쟁사 모니터링, GA4 임원 보고서, 뉴스레터 클렌징 |
-| **Sales** — 리드 관리 · 영업 자동화 | [`sales/`](./sales/) | CRM 리드 정규화, 견적서 자동 생성, 계약서 조항 추출, TAM 자료 정리, 콜드 아웃리치 |
+| **Marketing** — 캠페인 데이터 · 콘텐츠 운영 | [`marketing/`](./marketing/) | 광고 CSV 통합, 이미지 리사이즈, 경쟁사 모니터링, GA4 임원 보고서 |
+| **Sales** — 리드 관리 · 영업 자동화 | [`sales/`](./sales/) | CRM 리드 정규화, 견적서 자동 생성, 계약서 조항 추출, 콜드 아웃리치 |
 | **HR / Ops** — 채용 · 운영 | [`hr-ops/`](./hr-ops/) | 이력서 필드 추출, 폴더 리네이밍, 온보딩 체크리스트 |
 | **PM / 기획** — 프로젝트 · 데이터 | [`pm-planning/`](./pm-planning/) | 이슈 → 리포트, 회의록 → 액션 아이템, 릴리스 노트 초안 |
 
-> **팁**: 다른 직군 폴더도 훑어보세요. 이름만 다를 뿐 실제로 재활용 가능한 프롬프트가 많습니다. 예를 들어 Marketing 의 "CSV 통합" 프롬프트는 재무팀 월결산에, HR 의 "이력서 PDF 필드 추출" 프롬프트는 법무팀 계약서 검토에 그대로 응용됩니다.
+### 9.5 이렇게 사용하세요 (Step by Step)
+
+1. **이 메인 README 를 1~8장까지 순서대로** 읽고 설치·로그인 완료
+   - 이 단계를 건너뛰면 챕터를 못 따라옵니다. 반드시 완료.
+2. **본인 직군 폴더로 이동**
+   - 예: 마케터라면 [`marketing/`](./marketing/) 클릭
+3. **폴더 안 `README.md` 를 열어서 챕터 인덱스 확인**
+   - Ch 1 → Ch 2 → Ch 3 순서로 진행
+4. **각 챕터의 예시를 반드시 터미널에서 실제로 실행**
+   - 눈으로 읽기만 하면 안 됩니다. 손을 움직여야 배웁니다.
+5. **Ch 3 프롬프트는 팀 공유 문서에 저장해서 자산화**
+   - 매주·매월 재사용. 옆자리 동료에게도 공유.
+
+### 9.6 팁: 다른 직군 폴더도 훑어보세요
+
+이름만 다를 뿐 실제로 재활용 가능한 프롬프트가 많습니다:
+
+- Marketing 의 "CSV 통합" 프롬프트는 **재무팀 월결산**에 그대로 쓸 수 있습니다.
+- HR 의 "이력서 PDF 필드 추출" 프롬프트는 **법무팀 계약서 검토**에도 응용됩니다.
+- PM 의 "회의록 → 액션 아이템" 프롬프트는 **어떤 직군에서든** 유용합니다.
 
 ---
 
@@ -452,6 +558,9 @@ A. 프롬프트를 .md 파일로 저장해서 팀 공유 폴더/Notion 에 올�
 
 **Q. 설치한 버전을 최신으로 올리려면?**
 A. `copilot update`. 또는 설치할 때 쓴 도구로 업그레이드 (winget upgrade, brew upgrade, npm update).
+
+**Q. 다이어그램이 이상하게 보여요.**
+A. 이 문서 안의 그림은 GitHub 웹에서 볼 때 자동으로 그림으로 그려지는 [Mermaid](https://mermaid.js.org/) 문법입니다. GitHub 웹사이트에서 열면 정상적으로 표시됩니다. 로컬 텍스트 에디터에서 열면 코드로 보일 수 있어요.
 
 ---
 
