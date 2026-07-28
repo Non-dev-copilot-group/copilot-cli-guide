@@ -135,6 +135,8 @@ Windows 10/11 에는 기본적으로 `winget` 이라는 설치 도구가 들어 
 ```powershell
 winget install GitHub.Copilot
 ```
+<img width="717" height="197" alt="image" src="https://github.com/user-attachments/assets/d6904dbc-d4b1-4d2a-8508-f913beae3dc1" />
+
 
 **Step 3.** 설치가 끝나면 터미널을 **완전히 닫았다가 다시 열고** 아래로 확인:
 
