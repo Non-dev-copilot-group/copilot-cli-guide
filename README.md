@@ -73,14 +73,30 @@ copilot --version
 ```bash
 copilot
 ```
+<img width="1465" height="741" alt="image" src="https://github.com/user-attachments/assets/67cca124-7590-4271-8ece-f7d5cbfd7605" />
 
-프롬프트가 뜨면 `/login` 입력 → 화면에 나온 링크로 브라우저 접속 → 코드 붙여넣기 → GitHub 로그인 승인.
+1) 프롬프트가 뜨면 `/login` 입력
+
+
+<img width="531" height="162" alt="image" src="https://github.com/user-attachments/assets/ebb2afc3-3ecf-41bd-b7a0-50a3f2df35b6" />
+
+2) github.com > Sign with your browser (recommend) 를 Enter로 클릭
+
+<img width="1460" height="228" alt="image" src="https://github.com/user-attachments/assets/2d5b8a1f-b5bc-4f37-b768-34c873f7f2f6" />
+
+3) 화면에 나온 링크로 브라우저 접속  
+<img width="577" height="747" alt="image" src="https://github.com/user-attachments/assets/2ef88796-9745-4f16-adad-355316d87a29" />
+
+4) 코드 붙여넣기 → copilot을 부여받은 github 계정으로 로그인 후, Autorize gitub 해주세요.
 
 **한 번만 하면 됩니다.** 다음부터는 자동 로그인.
 
 ### 3단계 · 한국어로 말하기
 
 프롬프트에 원하는 걸 한국어로 그냥 말하세요:
+
+<img width="1435" height="736" alt="image" src="https://github.com/user-attachments/assets/a5a08c6d-2e20-4291-85db-200ed0cbea71" />
+
 
 ```
 > 이 폴더에 있는 csv 파일 목록 보여줘
@@ -97,7 +113,11 @@ Copilot would like to run: ls *.csv
 3. No                               ← 거부하고 다른 방법 요청
 ```
 
-**이게 전부입니다.** 끝낼 땐 `/exit` 또는 `Ctrl + C` 두 번.
+**이게 전부입니다.** 보낼 땐 `Enter` 끝낼 땐 `/exit` 또는 `Ctrl + C` 두 번.
+
+<img width="620" height="305" alt="image" src="https://github.com/user-attachments/assets/27d11edf-47f3-433f-b2fa-7333194c22cd" />
+
+**Model을 바꿔보세요.** /model 입력하고, claude haiku 4.5 모델로 바꾼 후, 사용해보세요. 속도는 빠른데 성능이 좋습니다.
 
 ---
 
